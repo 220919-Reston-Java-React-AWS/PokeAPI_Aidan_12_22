@@ -12,7 +12,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     defer-datasource-initialization: true
   datasource:
-    url: jdbc:postgresql://127.0.0.1:5432/postgres?currentSchema=pokeAPI
+    url: jdbc:postgresql://127.0.0.1:5432/postgres?currentSchema=pokepractice
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: ${POSTGRES_PWD}
