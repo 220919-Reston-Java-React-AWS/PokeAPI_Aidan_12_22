@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    defer-datasource-initialization: true
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/postgres?currentSchema=pokeAPI
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: ${POSTGRES_PWD}
+  h2:
+    console.enabled: true
+  
