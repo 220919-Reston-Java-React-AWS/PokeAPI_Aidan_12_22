@@ -24,6 +24,16 @@ public class Trainer {
 
     //@OneToMany(cascade = CascadeType.ALL, orphanRemoval=true, fetch = FetchType.EAGER)
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval=true)
+    @JoinTable(name="trainer_pokemons",
+            joinColumns = @JoinColumn(
+                    name = "trainer_id",
+                    referencedColumnName = "id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "pokemons_id",
+                    referencedColumnName = "id"
+            )
+    )
     private List<Pokemon> pokemons;
 
 }

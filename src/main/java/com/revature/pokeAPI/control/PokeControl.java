@@ -25,4 +25,15 @@ public class PokeControl {
         return ResponseEntity.ok( ps.upsert(pokemon) );
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity getById(@PathVariable int id){
+        return ResponseEntity.ok( ps.getPokemonById(id) );
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteById(@PathVariable int id){
+        ps.deletePokemonById(id);
+        return ResponseEntity.ok().build();
+    }
+
 }

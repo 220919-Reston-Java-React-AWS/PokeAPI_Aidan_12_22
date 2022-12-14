@@ -1,6 +1,7 @@
 package com.revature.pokeAPI.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +27,20 @@ public class Pokemon {
     private int pokelevel;
 
     private String imageUrl;
+
+    @ManyToOne//(cascade = CascadeType.ALL)
+    @JoinTable(name="trainer_pokemons",
+            joinColumns = @JoinColumn(
+                    name = "pokemons_id",
+                    referencedColumnName = "id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "trainer_id",
+                    referencedColumnName = "id"
+            )
+    )
+    @JsonBackReference
+    private Trainer trainer;
 
 
 }
